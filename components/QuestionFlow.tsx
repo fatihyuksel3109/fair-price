@@ -15,14 +15,26 @@ import {
   ListChecks
 } from 'lucide-react';
 
-const questions = {
+// Define a type for questions
+type Question = {
+  title: string;
+  description: string;
+  icon: React.ComponentType;
+  min?: number;
+  max?: number;
+  labels?: string[];
+  options?: string[];
+};
+
+// Define your questions with the new type
+const questions: Record<string, Question> = {
   complexity: {
     title: 'Project Complexity',
     description: 'How complex is your project?',
     icon: Activity,
     min: 1,
     max: 5,
-    labels: ['Very Simple', 'Simple', 'Moderate', 'Complex', 'Very Complex']
+    labels: ['Very Simple', 'Simple', 'Moderate', 'Complex', 'Very Complex'],
   },
   duration: {
     title: 'Project Duration',
@@ -30,7 +42,7 @@ const questions = {
     icon: Clock,
     min: 1,
     max: 6,
-    labels: ['1 week', '2 weeks', '1 month', '2 months', '3 months', '6+ months']
+    labels: ['1 week', '2 weeks', '1 month', '2 months', '3 months', '6+ months'],
   },
   requirements: {
     title: 'Project Requirements',
@@ -42,9 +54,9 @@ const questions = {
       'Maintenance',
       'Training',
       'Custom Features',
-      'Integration'
-    ]
-  }
+      'Integration',
+    ],
+  },
 };
 
 export default function QuestionFlow() {
@@ -97,7 +109,9 @@ export default function QuestionFlow() {
       <Card className="question-card">
         <CardContent className="p-6">
           <div className="flex items-center gap-4 mb-6">
-            <Icon className="w-8 h-8 text-primary" />
+            <span className="w-8 h-8 text-primary">
+              <Icon />
+            </span>
             <div>
               <h3 className="text-xl font-semibold">{currentQuestion.title}</h3>
               <p className="text-muted-foreground">{currentQuestion.description}</p>
@@ -126,7 +140,7 @@ export default function QuestionFlow() {
             />
           )}
 
-          {questionStep === 2 && (
+          {questionStep === 2 && currentQuestion.options && (
             <div className="grid grid-cols-2 gap-4">
               {currentQuestion.options.map((req) => (
                 <Button

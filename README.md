@@ -14,7 +14,7 @@ FairPrice Estimator is a web app that helps designers, developers, and other pro
 1. **Interactive Question Flow**: Users are guided through a series of predefined questions.
 2. **Rule-Based Price Estimation**: Pricing is calculated based on predefined static values.
 3. **Category-Based Suggestions**: Different job types (e.g., web design, mobile development, UI/UX design, SEO services, copywriting, video editing, digital marketing, and branding) have tailored pricing rules.
-4. **Dark Mode Support**: Toggle between light and dark themes.
+4. **Dark Mode Support**.
 5. **Responsive Design**: Works across all devices.
 
 ## Job Categories Supported
@@ -29,7 +29,7 @@ FairPrice Estimator is a web app that helps designers, developers, and other pro
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/fatihyuksel3109/fairprice-estimator.git
+   git clone https://github.com/fatihyuksel3109/fair-price-estimator.git
    cd fairprice-estimator
    ```
 2. Install dependencies:
@@ -44,3 +44,29 @@ FairPrice Estimator is a web app that helps designers, developers, and other pro
 
 ## Folder Structure
 ```
+/fairprice
+├── app/
+│   ├── context/
+│   │   └── EstimationContext.tsx
+│   ├── favicon.ico
+│   ├── globals.css (Styling)
+│   ├── layout.tsx (Global Layout)
+│   └── page.tsx
+├── /components (Reusable UI components)
+├── /utils (Static pricing rules)
+├── next.config.js
+├── package.json
+├── README.md
+```
+
+## Future Enhancements (AI-Driven Phase)
+- **AI-Powered Dynamic Pricing**: Use OpenAI API to analyze market trends and generate real-time pricing suggestions.
+- **User History & Analytics**: Allow users to save past estimates and track industry trends.
+- **Customization & Negotiation**: Users can tweak parameters to refine estimates.
+- **API for Market-Based Adjustments**: Fetch real-time freelance pricing data from sources like Upwork, Fiverr, and industry benchmarks.
+
+## Contribution
+Contributions are welcome! Feel free to fork the project and submit a PR.
+
+## License
+MIT License

@@ -19,15 +19,19 @@ export function ThemeToggle() {
   }
 
   const toggleTheme = () => {
+    document.body.classList.add("theme-transition")
     setTheme(theme === "light" ? "dark" : "light")
+    setTimeout(() => {
+      document.body.classList.remove("theme-transition")
+    }, 300) // Match the duration of the CSS transition
   }
 
   return (
     <Button onClick={toggleTheme} variant="outline" size="icon">
       {theme === "light" ? (
-        <Moon className="h-[1.2rem] w-[1.2rem] transition-transform duration-300 transform scale-100 opacity-100" />
+        <Moon className="h-[1.2rem] w-[1.2rem]" />
       ) : (
-        <Sun className="h-[1.2rem] w-[1.2rem] transition-transform duration-300 transform scale-100 opacity-100" />
+        <Sun className="h-[1.2rem] w-[1.2rem]" />
       )}
       <span className="sr-only">Toggle theme</span>
     </Button>
