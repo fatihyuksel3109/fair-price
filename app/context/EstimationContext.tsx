@@ -1,4 +1,3 @@
-// app/context/EstimationContext.tsx
 import React, { createContext, useContext, useReducer } from 'react';
 
 export type JobCategory = 'webDev' | 'mobileDev' | 'uiux' | 'seo' | 'graphics' | 'content' | 'consulting' | null;
@@ -25,7 +24,7 @@ const initialState: EstimationState = {
   complexity: 0,
   duration: 0,
   requirements: [],
-  currentStep: 0,
+  currentStep: 0, // Should ensure categories render initially
 };
 
 const EstimationContext = createContext<{
@@ -56,6 +55,7 @@ function estimationReducer(state: EstimationState, action: EstimationAction): Es
 
 export function EstimationProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(estimationReducer, initialState);
+  console.log('EstimationProvider State:', state); // Debug state
   return (
     <EstimationContext.Provider value={{ state, dispatch }}>
       {children}
