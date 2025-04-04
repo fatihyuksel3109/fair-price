@@ -16,7 +16,7 @@ type Question = {
   max?: number;
   labels?: string[];
   options?: string[];
-  categorySpecific?: Record<string, string>;
+  categorySpecific: Record<string, { simple: string; moderate: string; complex: string; }>;
 };
 
 const complexityDescriptions: Record<string, { simple: string; moderate: string; complex: string }> = {
@@ -129,6 +129,7 @@ const questions: Record<string, Question> = {
     description: 'Select all that apply',
     icon: ListChecks,
     options: [], // Will be set dynamically based on category
+    categorySpecific: {}, // Empty object to satisfy the type
   },
 };
 
